@@ -176,7 +176,7 @@ def AdminHallticket(request):
         detp = request.POST['dept']
         typs = request.POST['type']
 
-        dt = Dept.objects.get(name=detp)
+        dt = Dept.objects.get(name=#detp)
 
         if typs == 'core':
             subs = Subjects.objects.filter(types=typs, dept = dt)
