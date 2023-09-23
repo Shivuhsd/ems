@@ -1,0 +1,49 @@
+{% extends 'dashboard.html' %}
+
+
+{% block dash %}
+    <div class="container py-5">
+        <div class="h4">Hall Ticket Scheduling And Generation Panel</div>
+        <form action="" method="POST" class="form-control">
+            {% csrf_token %}
+            <label for="">Course</label>
+            <select name="dept" id="" class="form-control">
+                {% for dept in dept %}
+                <option value="{{dept}}">{{dept}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="">Subject Type</label>
+            <select name="type" id="" class="form-control" onchange="this.form.submit()">
+                <option value="">Select Type</option>
+                <option value="core">Core</option>
+                <option value="elective">Elective</option>
+            </select>
+            <br>
+            <label for="">Subjects</label>
+            <select name="sub" id="" class="form-control">
+                {% if subs %}
+                {% for i in subs %}
+                <option value="{{i.sub_name}}">{{i.sub_name}}</option>
+                {% endfor %}
+                {% else %}
+                <option value="{{ele}}">{{ele}}</option>
+                {%endif%}
+            </select>
+
+            <br>
+
+            <label for="">Date</label>
+            <input type="date" name="data" id="" class="form-control">
+
+            <br>
+
+            <label for="">Time</label>
+            <input type="time" name="time" id="" class="form-control" required>
+            <hr>
+            <button class="btn btn-dark">Submit</button>
+
+            
+        </form>
+    </div>
+{% endblock %}

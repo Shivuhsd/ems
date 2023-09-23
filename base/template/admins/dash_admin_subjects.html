@@ -1,0 +1,28 @@
+{% extends 'dashboard.html' %}
+
+
+{% block dash %}
+    <div class="container py-5">
+        <h3 class="my-3">Add Subjects</h3>
+        <form action="" method="POST" class="form-control p-3 shadow">
+            {% csrf_token %}
+            <label for="">Subject Code</label>
+            <input type="text" name="sub_code" placeholder="Subject Code" class="form-control"><br>
+            <label for="">Subject Name</label>
+            <input type="text" name="sub_name" placeholder="Subject Name" class="form-control"><br>
+            <label for="">Department</label>
+            <select name="dept" id="" class="form-control">
+                {% for dept in dept %}
+                <option value="{{dept.name}}">{{dept.name}}</option>
+                {% endfor %}
+            </select><br>
+            <label for="">Type Of Subject</label>
+            <select name="type" id="" class="form-control">
+                <option value="core">Core</option>
+                <option value="elective">Elective</option>
+            </select>
+            <br><hr>
+            <button class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+{% endblock %}
